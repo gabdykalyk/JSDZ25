@@ -83,13 +83,18 @@ let sum = newArr.reduce((acc, next) => {
 console.log(sum)
 
 let newArray = [1, 2, 3, 0, 4, 5, 6]
-let answer = 0
+let zeroFound = false;
+
 let zeroStop = newArray.reduce((acc, next) => {
-    if (next == 0) {
-        answer = acc;
-    } else {
-        return acc + next;
+    if (!zeroFound) {
+        if (next === 0) {
+            zeroFound = true;
+        } else {
+            return acc + next
+        }
+    
     }
+    return acc;
 })
 
-console.log(answer)
+console.log(zeroStop)
